@@ -1,30 +1,43 @@
+const express = require('express');
 const app = express();
-const express = require('express')();
-const PORT = 8080;
 
-app.use(express.json())
+// Parse JSON bodies for this app. Make sure you put
+// `app.use(express.json())` **before** your route handlers!
+app.use(express.json());
+
+app.post('*', (req, res) => {
+  req.body; // JavaScript object containing the parse JSON
+  res.json(req.body);
+});
+const PORT = 8080;
 app.get('/skins/uncommon', (req, res)=>{
   res.status(200).send({
-    Rarity:'Uncommon',
-    Price:'800'
-  })
+   name:'',
+    source:''
+ })
 });
+app.get('', (res, req)=>{
+  res.status(200).send({
+    State:'Running'
+  })
+})
 app.get('/skins/rare', (req, res)=>{
   res.status(200).send({
-    Rarity:'Rare',
-    Price:'1500'
+    name:'',
+    source:''
   })
 });
 app.get('/skins/epic', (req, res)=>{
   res.status(200).send({
-    Rarity:'Epic',
-    Price:'1500'
+   name:'',
+    source:''
   })
 });
 app.get('/skins/legendary', (req, res)=>{
   res.status(200).send({
-    Rarity:'Legendary',
-    Price:'2000'
+    name:'',
+    source:''
+  
   })
 });
 
@@ -45,5 +58,5 @@ app.post('skins/uncommon/:id',(req, res)=>{
 
 app.listen(
   PORT,
-  ()=>console.log("it's alive on https://Fortnite-skins.mewtwo50002.repl.co${PORT}")
+  ()=>console.log("it's alive on https://Fortnite-skins.mewtwo50002.repl.co/${PORT}")
 )
