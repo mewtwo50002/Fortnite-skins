@@ -1,10 +1,8 @@
-
-const express = require('express')();
 const app = express();
+const express = require('express')();
 const PORT = 8080;
 
 app.use(express.json())
-
 app.get('/skins/uncommon', (req, res)=>{
   res.status(200).send({
     Rarity:'Uncommon',
